@@ -3,8 +3,8 @@ import { env } from '../config/env.js';
 
 export const queueConnection = new IORedis({
   host: env.REDIS_HOST,
-  port: env.REDIS_HOST,
-  maxRetriesRequest: null, // REQUIRED by BullMQ
+  port: env.REDIS_PORT,
+  maxRetriesPerRequest: null, // REQUIRED by BullMQ
   enableReadyCheck: false,
 });
 
@@ -13,13 +13,13 @@ export const queueConnection = new IORedis({
 export const workerConnection = new IORedis({
   host: env.REDIS_HOST,
   port: env.REDIS_PORT,
-  maxRetriesRequest: null,
+  maxRetriesPerRequest: null,
   enableReadyCheck: false,
 });
 
 //Log connection events for debugging
 queueConnection.on('connect', () => console.log("Queue connection establish"));
-queueConnection.on('error', (err) -> console.log("Queue connection error: ",err.message));
+queueConnection.on('error', (err) => console.log("Queue connection error: ",err.message));
 
 
 workerConnection.on('connect', () => console.log('Worker connection established'));

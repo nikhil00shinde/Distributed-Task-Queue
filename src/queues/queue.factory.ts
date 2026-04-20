@@ -1,11 +1,11 @@
 import { Queue, QueueEvents } from 'bullmq';
 import { queueConnection } from './connection.js';
-import type { JobOptions } from 'bullmq';
+import type { JobsOptions } from 'bullmq';
 
 //Generic Factory - creates a types Queue
 export function createQueue<TData = unknown>(
   name: string,
-  defaultJobOptions?: defaultJobOptions
+  defaultJobOptions?: JobsOptions
 ): Queue<TData> {
   return new Queue<TData>(name, {
     connection: queueConnection,

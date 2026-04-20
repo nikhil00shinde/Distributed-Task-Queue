@@ -1,7 +1,7 @@
 
 export type EmailJob = {
   type: 'email';
-  to: 'string';
+  to: string;
   subject: string;
   body: string;
   attachments?: string[];

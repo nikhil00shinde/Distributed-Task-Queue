@@ -6,7 +6,7 @@ async function smokeTest(): Promise<void> {
   console.log("Starting smoke test... \n");
   
   //Test 1: Critical queue (password reset email)
-  const emailJob: EmailJob {
+  const emailJob: EmailJob = {
     type: 'email',
     to: 'user@example.com',
     subject: 'Password Reset',
@@ -39,9 +39,9 @@ async function smokeTest(): Promise<void> {
 
   console.log('\n Queue stats:');
   const stats = await Promise.all([
-    criticalQueue: getJobCounts(),
-    defaultQueue: getJobCounts(),
-    bulkQueue: getJobCounts(),
+    criticalQueue.getJobCounts(),
+    defaultQueue.getJobCounts(),
+    bulkQueue.getJobCounts(),
   ]);
 
   await closeAllQueues();

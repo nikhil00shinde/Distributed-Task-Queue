@@ -10,7 +10,7 @@ import type { JobPayload } from '../jobs/job.types.js';
 
 // Three queue with different default options 
 export const criticalQueue = createQueue<JobPayload>(
-  QUEUE_NAME.CRITICAL,
+  QUEUE_NAMES.CRITICAL,
   criticalQueueOptions
 );
 
@@ -19,7 +19,7 @@ export const defaultQueue = createQueue<JobPayload>(
   defaultQueueOptions
 );
 
-export const buldQueue = createQueue<JobPayload>(
+export const bulkQueue = createQueue<JobPayload>(
   QUEUE_NAMES.BULK,
   bulkQueueOptions
 );
@@ -32,7 +32,7 @@ export const queues = {
 } as const;
 
 // Graceful shutdown helper 
-export async function closeAllQueue(): Promise<void> {
+export async function closeAllQueues(): Promise<void> {
   await Promise.all([
     criticalQueue.close(),
     defaultQueue.close(),

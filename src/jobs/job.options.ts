@@ -11,7 +11,7 @@ export const PRIORITY = {
 // Attemp 1 fails -> wait 1s -> attemp 2 fails -> wait 2s -> attempt 3 fails -> wait 2s -> attempt 3 fails -> wait 4s -> ...
 // Delays: 1s, 2s, 4s, 8s, 16s (5 total attempts)
 
-export const RETRY_CONFIG: JobsOption = {
+export const RETRY_CONFIG: JobsOptions = {
   attempts: 5,
   backoff: {
     type: 'exponential',
@@ -27,9 +27,9 @@ export const RETRY_CONFIG: JobsOption = {
 };
 
 //Per-queue defaults 
-export const criticalQueueOptions: JobOptions = {
+export const criticalQueueOptions: JobsOptions = {
   ...RETRY_CONFIG,
-  priority: PRIORITY,.CRITICAL,
+  priority: PRIORITY.CRITICAL,
 };
 
 export const defaultQueueOptions: JobsOptions = {
@@ -37,7 +37,7 @@ export const defaultQueueOptions: JobsOptions = {
   priority: PRIORITY.DEFAULT,
 };
 
-export const buldQueueOptions: JobsOptions = {
+export const bulkQueueOptions: JobsOptions = {
   ...RETRY_CONFIG,
   priority: PRIORITY.BULK,
 };
