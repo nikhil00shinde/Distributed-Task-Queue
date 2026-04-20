@@ -1,0 +1,36 @@
+{
+  "name": "distributed-task-queue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "smoke": "tsx scripts/enqueue-smoke.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikhil00shinde/Distributed-Task-Queue.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikhil00shinde/Distributed-Task-Queue/issues"
+  },
+  "homepage": "https://github.com/nikhil00shinde/Distributed-Task-Queue#readme",
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "bullmq": "^5.74.1",
+    "dotenv": "^17.4.2",
+    "ioredis": "^5.10.1",
+    "pino": "^10.3.1",
+    "zod": "^4.3.6"
+  }
+}
