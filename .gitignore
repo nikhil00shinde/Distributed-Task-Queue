@@ -1,4 +1,5 @@
-node_modules
-dist
-.env
+**/target/
+.idea/
+*.iml
 *.log
+.env
