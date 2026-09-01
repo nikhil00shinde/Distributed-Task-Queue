@@ -18,7 +18,8 @@
     <version>0.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-          <module>task-model</module>
+        <module>task-model</module>
+        <module>task-api</module>
     </modules>
     <name>Distributed Task Queue</name>
     <description>Fault-tolerant task processing with Redis and chaos engineering</description>
