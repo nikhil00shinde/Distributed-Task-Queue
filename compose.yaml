@@ -1,0 +1,16 @@
+name: distributed-task-queue
+
+services:
+  dev:
+    image: maven:3.9.11-eclipse-temurin-21
+    working_dir: /workspace 
+    volumes:
+      - .:/workspace:Z # SElinux - this specific container is allowed to read and write
+      - maven-cache:/root/.m2 
+    stdin_open: true # -i 
+    tty: true # -t
+
+
+
+volumes:
+  maven-cache:
