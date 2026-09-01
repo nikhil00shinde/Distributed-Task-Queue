@@ -17,7 +17,9 @@
     <artifactId>distributed-task-queue</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-
+    <modules>
+          <module>task-model</module>
+    </modules>
     <name>Distributed Task Queue</name>
     <description>Fault-tolerant task processing with Redis and chaos engineering</description>
 
