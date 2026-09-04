@@ -8,7 +8,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.Optional;
+import java.util.UUID;
 import java.net.URI;
 
 @RestController
@@ -38,5 +42,19 @@ public class TaskController {
         );
 
         return ResponseEntity.accepted().location(location).body(response);
+    }
+
+    @GetMapping("/{taskId}")
+    public ResponseEntity<TaskStatusResponse> findById(
+        @PathVariable UUID taskId
+    ) {
+        Optional<Task> task = taskService.findById(taskId);
+
+        if (task.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        TaskStatusResponse response = TaskStatusResponse.from(task.get());
+        return ResponseEntity.ok(response);
     }
 }
