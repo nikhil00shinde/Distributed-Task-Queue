@@ -1,0 +1,8 @@
+[
+    {
+        "name": "taskqueue_dev_redis_1",
+        "listen": "0.0.0.0:26379",
+        "upstream": "redis:6379",
+        "enabled": true
+    }
+]
