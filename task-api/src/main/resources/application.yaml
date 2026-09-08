@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: task-api
+  
+  data:
+    redis:
+      host: ${REDIS_HOST:toxiproxy}
+      port: ${REDIS_PORT:26379}
+      connect-timeout: 2s
+      timeout: 2s

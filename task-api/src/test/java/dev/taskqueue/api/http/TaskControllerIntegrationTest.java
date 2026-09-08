@@ -20,7 +20,7 @@ import java.util.UUID;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
-@SpringBootTest
+@SpringBootTest(properties = "spring.data.redis.database=1")
 @AutoConfigureMockMvc
 public class TaskControllerIntegrationTest {
 
